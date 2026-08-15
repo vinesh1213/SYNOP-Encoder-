@@ -1,5 +1,5 @@
 from fastapi import APIRouter, HTTPException, Response
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Optional
 
 from backend_core import (
@@ -42,7 +42,7 @@ def create_station(station: StationSchema):
         conn.close()
         raise HTTPException(status_code=400, detail={"station_number": ["Station with this number already exists."]})
 
-    now = datetime.utcnow().isoformat() + "Z"
+    now = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
     cursor.execute("""
         INSERT INTO stations (
             station_number, station_name, latitude, longitude, elevation,
@@ -83,7 +83,7 @@ def update_station(id: int, station: StationSchema):
         conn.close()
         raise HTTPException(status_code=404, detail="Not found.")
 
-    now = datetime.utcnow().isoformat() + "Z"
+    now = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
     cursor.execute("""
         UPDATE stations SET
             station_number = ?, station_name = ?, latitude = ?, longitude = ?,
@@ -176,7 +176,7 @@ def create_observation(obs: ObservationSchema):
     st_row = cursor.fetchone()
     st_num = st_row["station_number"] if st_row else None
 
-    data = clean_request_data(obs.dict())
+    data = clean_request_data(obs.model_dump())
 
     if obs.is_validated:
         validation = validate_observation(data, st_num)
@@ -184,7 +184,7 @@ def create_observation(obs: ObservationSchema):
             conn.close()
             raise HTTPException(status_code=400, detail={"errors": validation["errors"]})
 
-    now = datetime.utcnow().isoformat() + "Z"
+    now = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
     email_status = "sent" if obs.is_validated else "pending"
 
     synop_res = generate_synop_message(data, st_num)
@@ -306,7 +306,7 @@ def validate_observation_endpoint(id: int):
 
     if validation["valid"]:
         synop_res = generate_synop_message(obs_data, st_num)
-        now = datetime.utcnow().isoformat() + "Z"
+        now = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
         cursor.execute("""
             UPDATE observations SET
                 is_validated = 1,
@@ -432,7 +432,7 @@ def preview_synop(obs: ObservationSchema):
     st_num = st_row["station_number"] if st_row else None
     conn.close()
 
-    data = clean_request_data(obs.dict())
+    data = clean_request_data(obs.model_dump())
     result = generate_synop_message(data, st_num)
     return result
 

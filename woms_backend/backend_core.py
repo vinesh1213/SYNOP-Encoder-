@@ -1,7 +1,7 @@
 import os
 import sqlite3
 import math
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Optional, List, Dict, Any
 from pydantic import BaseModel
 from services.csv_exporter import save_observation_to_csv, generate_csv_string_for_observations
@@ -100,7 +100,7 @@ def init_db():
 
     cursor.execute("SELECT COUNT(*) FROM stations")
     if cursor.fetchone()[0] == 0:
-        now = datetime.utcnow().isoformat() + "Z"
+        now = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
         default_stations = [
             ("43279", "Chennai", 13.00, 80.18, 16.0, "chennai@weather.gov.in", "manned"),
             ("43271", "Pune", 18.53, 73.85, 560.0, "pune@weather.gov.in", "manned"),
@@ -188,6 +188,8 @@ class ObservationSchema(BaseModel):
     observation_time: str
     observer_name: str
     observation_type: str
+    precipitation_indicator: Optional[Any] = None
+    weather_indicator: Optional[Any] = None
     wind_direction: Optional[Any] = None
     wind_speed: Optional[Any] = None
     wind_unit: Optional[str] = None

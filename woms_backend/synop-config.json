@@ -1,0 +1,26 @@
+{
+    "general": {
+        "theme": "dark",
+        "colors": {
+            "primary": "#4facfe",
+            "secondary": "#00f2fe"
+        }
+    },
+    "station": {
+        "default_station": "43279",
+        "filter_active_only": true
+    },
+    "units": {
+        "wind_unit": "knots",
+        "show_section_333": true
+    },
+    "auto_decoder": {
+        "enabled": true,
+        "interval_seconds": 60,
+        "input_folder": "./incoming_synops",
+        "output_folder": "./decoded_synops"
+    },
+    "storage": {
+        "file_naming_format": "{station}_{YYYYMMDD}_{HH}.txt"
+    }
+}

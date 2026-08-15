@@ -1,5 +1,5 @@
 import sqlite3
-from datetime import datetime
+from datetime import datetime, timezone
 import os
 
 DATABASE_FILE = os.path.join(os.path.dirname(os.path.dirname(__file__)), "woms.db")
@@ -96,7 +96,7 @@ def init_db():
     # Insert default Meenambakkam station if table is empty
     cursor.execute("SELECT COUNT(*) FROM stations")
     if cursor.fetchone()[0] == 0:
-        now = datetime.utcnow().isoformat() + "Z"
+        now = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
         cursor.execute("""
             INSERT INTO stations (
                 station_number, station_name, latitude, longitude, elevation, 

@@ -1,18 +1,18 @@
 import os
-import toml
+import json
 from typing import Dict, Any
 
-CONFIG_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'synop-config.toml')
+CONFIG_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'synop-config.json')
 
 def load_config() -> Dict[str, Any]:
     if not os.path.exists(CONFIG_PATH):
         create_default_config()
     with open(CONFIG_PATH, 'r') as f:
-        return toml.load(f)
+        return json.load(f)
 
 def save_config(config_data: Dict[str, Any]) -> None:
     with open(CONFIG_PATH, 'w') as f:
-        toml.dump(config_data, f)
+        json.dump(config_data, f, indent=4)
 
 def create_default_config() -> None:
     default_config = {
@@ -39,3 +39,4 @@ def create_default_config() -> None:
         }
     }
     save_config(default_config)
+

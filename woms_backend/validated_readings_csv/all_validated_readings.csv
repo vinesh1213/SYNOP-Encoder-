@@ -7,3 +7,18 @@ Impossible values rejected:
 - Precipitation indicator (iR) is required
 - Weather indicator (iX) is required",2026-08-05T13:07:02.473823Z,2026-08-05T13:07:02.473823Z
 999,43279,Meenambakkam,meenambakkam@example.com,2026-08-03,12:00:00,Test Observer,routine,220,15.0,knots,6000.0,meters,,6,600.0,,,,,28.5,23.0,20.2,,,1004.2,1010.5,,,,,,0.0,,No,,,,,,,,,,,,,,,,,,,Yes,AAXX 03124 43279 31560 62215 10285 20202 30042 40105 =,2026-08-03T12:00:00Z,2026-08-03T12:00:00Z
+13,43279,Chennai,chennai@weather.gov.in,2026-08-03,14:00:00,Automated Test,routine,180,12.0,knots,8000.0,meters,,5,1000.0,,,,,26.5,21.0,18.0,,,1006.0,1012.5,,,,,,0.0,,No,No,No,No,No,No,No,,,,,,,,,,,,,Yes,"[ERROR] SYNOP Generation Failed
+
+Impossible values rejected:
+- Precipitation indicator (iR) is required
+- Weather indicator (iX) is required",2026-08-08T10:05:41.636843Z,2026-08-08T10:05:41.636843Z
+999,43279,Meenambakkam,meenambakkam@example.com,2026-08-03,12:00:00,Test Observer,routine,220,15.0,knots,6000.0,meters,,6,600.0,,,,,28.5,23.0,20.2,,,1004.2,1010.5,,,,,,0.0,,No,,,,,,,,,,,,,,,,,,,Yes,AAXX 03124 43279 31560 62215 10285 20202 30042 40105 =,2026-08-03T12:00:00Z,2026-08-03T12:00:00Z
+14,43279,Chennai,chennai@weather.gov.in,2026-08-03,14:00:00,Automated Test,routine,180,12.0,knots,8000.0,meters,,5,1000.0,,,,,26.5,21.0,18.0,,,1006.0,1012.5,,,,,,0.0,,No,No,No,No,No,No,No,,,,,,,,,,,,,Yes,"[ERROR] SYNOP Generation Failed
+
+Impossible values rejected:
+- Precipitation indicator (iR) is required
+- Weather indicator (iX) is required",2026-08-08T10:12:13.423068Z,2026-08-08T10:12:13.423068Z
+999,43279,Meenambakkam,meenambakkam@example.com,2026-08-03,12:00:00,Test Observer,routine,220,15.0,knots,6000.0,meters,,6,600.0,,,,,28.5,23.0,20.2,,,1004.2,1010.5,,,,,,0.0,,No,,,,,,,,,,,,,,,,,,,Yes,AAXX 03124 43279 31560 62215 10285 20202 30042 40105 =,2026-08-03T12:00:00Z,2026-08-03T12:00:00Z
+15,43279,Chennai,chennai@weather.gov.in,2026-08-03,14:00:00,Automated Test,routine,180,12.0,knots,8000.0,meters,,5,1000.0,,,,,26.5,21.0,18.0,,,1006.0,1012.5,,,,,,0.0,,No,No,No,No,No,No,No,,,,,,,,,,,,,Yes,AAXX 03144 43279 11658 5//12 10265 20180 30060 40125 =,2026-08-08T10:20:43.689736Z,2026-08-08T10:20:43.689736Z
+999,43279,Meenambakkam,meenambakkam@example.com,2026-08-03,12:00:00,Test Observer,routine,220,15.0,knots,6000.0,meters,,6,600.0,,,,,28.5,23.0,20.2,,,1004.2,1010.5,,,,,,0.0,,No,,,,,,,,,,,,,,,,,,,Yes,AAXX 03124 43279 31560 62215 10285 20202 30042 40105 =,2026-08-03T12:00:00Z,2026-08-03T12:00:00Z
+16,43279,Chennai,chennai@weather.gov.in,2026-08-08,09,System,routine,SE,10.0,knots,10000.0,meters,none,3,600.0,3,4,0,0,39.0,26.4,20.6,,,1001.8,1003.5,,,45,0,0,0.0,,No,No,No,No,No,No,No,,,,,,,,,,,,,Yes,AAXX 08094 43279 32597 31410 10390 20206 30018 40035 83400 =,2026-08-08T10:40:07.556726Z,2026-08-08T10:40:07.556726Z
